@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
   
-<changeSet author="csteele" id="1" context="ci_regional,ci_general">
+<changeSet author="csteele" id="1" context="ci_regional,ci_general,haiti">
     <preConditions onFail="MARK_RAN">
       <not>
         <tableExists tableName="type_of_data_indicator" schemaName="clinlims" />
@@ -26,7 +26,7 @@
 
   </sql>
 </changeSet>
-<changeSet author="csteele" id="2" context="ci_regional,ci_general">
+<changeSet author="csteele" id="2" context="ci_regional,ci_general,haiti">
     <preConditions onFail="MARK_RAN">
       <not>
         <tableExists tableName="data_indicator" schemaName="clinlims" />
@@ -51,7 +51,7 @@
     VALUES (nextval('clinlims.reference_tables_seq'), 'DATA_INDICATOR', 'Y', 'N');
   </sql>
 </changeSet> 
-<changeSet author="csteele" id="3" context="ci_regional,ci_general">
+<changeSet author="csteele" id="3" context="ci_regional,ci_general,haiti">
     <preConditions onFail="MARK_RAN">
       <not>
         <tableExists tableName="data_resource" schemaName="clinlims" />
@@ -84,7 +84,7 @@
 	);
   </sql>
 </changeSet>  
-<changeSet author="csteele" id="4" context="ci_regional,ci_general">
+<changeSet author="csteele" id="4" context="ci_regional,ci_general,haiti">
     <preConditions onFail="MARK_RAN">
       <not>
         <tableExists tableName="data_value" schemaName="clinlims" />
@@ -110,7 +110,7 @@
     VALUES (nextval('clinlims.reference_tables_seq'), 'DATA_VALUE', 'Y', 'N');
   </sql>
 </changeSet>
-<changeSet author="csteele" id="5" context="ci_regional,ci_general">
+<changeSet author="csteele" id="5" context="ci_regional,ci_general,haiti">
     <preConditions onFail="MARK_RAN">
 		<sqlCheck expectedResult="0">SELECT COUNT(*) FROM clinlims.type_of_data_indicator WHERE name = 'Turnaround Time'</sqlCheck>
 	</preConditions>
@@ -145,7 +145,7 @@
 	
   </sql>
 </changeSet>
-<changeSet author="csteele" id="6" context="ci_regional,ci_general">
+<changeSet author="csteele" id="6" context="ci_regional,ci_general,haiti">
     <preConditions onFail="MARK_RAN">
 		<sqlCheck expectedResult="0">SELECT COUNT(*) FROM clinlims.site_information WHERE name = 'Data Sub URL'</sqlCheck>
 	</preConditions>

@@ -10,7 +10,7 @@
   			<column name="name" type="varchar(40)"/>
   		</modifyColumn>
   	</changeSet>
-    <changeSet author="paulsc" id="1" runOnChange="true">
+    <changeSet author="paulsc" id="1" >
     <comment>Adds all of the modules to the database for all instances.
     Can be re-run because of the de-duplication at the end of the change set</comment>
     <insert schemaName="clinlims" tableName="system_module">
@@ -874,7 +874,7 @@
     </sql>
     </changeSet>
     
-    <changeSet author="nixonl" id="1" runOnChange="true">
+    <changeSet author="nixonl" id="1" >
     <preConditions onFail="MARK_RAN">
   		<sqlCheck expectedResult="0">
   				select count(*) from clinlims.system_module where name = 'PatientEditByProject:readwrite'
@@ -905,7 +905,7 @@
     </changeSet>
     
      <!-- Enhancement to paulsc:1  -->
-      <changeSet author="nixonl" id="2" runOnChange="true">
+      <changeSet author="nixonl" id="2" >
     	<comment>Changing SampleEdit module to SampleEditByProject</comment>
 	    <update tableName="system_module" schemaName="clinlims">
 	    	 <column name="name" value="SampleEditByProject:readwrite"/>

@@ -2,7 +2,7 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
   <!--Menu Study settings-->
     
- <changeSet author="CI OpenELIS developers group" id="1" runAlways="true">
+ <changeSet author="CI OpenELIS developers group" id="1" >
     <preConditions onFail="MARK_RAN">
       <sqlCheck expectedResult="1">select count(*) from clinlims.menu where element_id = 'menu_reports_export_specific';
     		</sqlCheck>

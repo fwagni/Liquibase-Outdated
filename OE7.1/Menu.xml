@@ -270,7 +270,7 @@ INSERT INTO clinlims.menu (id,parent_id,presentation_order,element_id,action_url
  </sql>
   </changeSet>
   
-   <changeSet author="CI OpenELIS developers group" id="2" context="ci_regional,ci_general" runAlways="true">
+   <changeSet author="CI OpenELIS developers group" id="2" context="ci_regional,ci_general" >
    <preConditions onFail="MARK_RAN">
       <sqlCheck expectedResult="0">select count(*) from clinlims.menu where element_id='menu_administration_test_management';
     		</sqlCheck>
@@ -284,7 +284,7 @@ INSERT INTO clinlims.menu (id,parent_id,presentation_order,element_id,action_url
   
     
   
-  <changeSet author="CI OpenELIS developers group" id="3" runAlways="true" >
+  <changeSet author="CI OpenELIS developers group" id="3"  >
     <preConditions onFail="MARK_RAN">
       <sqlCheck expectedResult="0">select count(*) from clinlims.menu where element_id = 'menu_sample_batch_entry' ;
     		</sqlCheck>

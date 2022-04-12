@@ -3,7 +3,7 @@
     xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
     <!--Add change tags here-->
-    <changeSet id="1" author="paulHaiti" context="haiti" runOnChange="true">
+    <changeSet id="1" author="paulHaiti" context="haiti" >
     <comment>Adds Mantenance Admin to the module site_information</comment>
     <sql>
         INSERT INTO clinlims.system_role_module( id, has_select, has_add, has_update, has_delete, system_role_id, system_module_id)
@@ -13,7 +13,7 @@
     </sql>
     </changeSet>
     
-    <changeSet id="2" author="pauls" context="haiti" runOnChange="true">
+    <changeSet id="2" author="pauls" context="haiti" >
     <comment>Adding localization keys to the sample type table</comment>
     <update schemaName="clinlims" tableName="type_of_sample">
     <column name="display_key" value="sample.type.spit"/>
@@ -81,7 +81,7 @@
     </update>
     </changeSet>
     
-    <changeSet author="pauls" id="3" context="haiti" runOnChange="true">
+    <changeSet author="pauls" id="3" context="haiti" >
            <comment>Setting Status for Haiti clinical</comment>
            <delete schemaName="clinlims" tableName="status_of_sample"/>
            <insert schemaName="clinlims" tableName="status_of_sample">
@@ -157,7 +157,7 @@
            </sql>
 </changeSet>
 
-<changeSet author="paulsc" id="5" context="haiti" runOnChange="true">
+<changeSet author="paulsc" id="5" context="haiti" >
     <comment>Changes the views to match the new status set</comment>
     <createView replaceIfExists="true" schemaName="clinlims" viewName="hiv_patients">
     SELECT DISTINCT ON (pt.id) pt.id AS patient_id, pt.person_id, pt.gender, age(a.started_date, pt.birth_date) &lt; (28::double precision * '1 day'::interval) AS infant, a.completed_date

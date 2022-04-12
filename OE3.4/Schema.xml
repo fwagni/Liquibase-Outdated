@@ -64,7 +64,7 @@
 <changeSet id="4" author="paulsc">
     <comment>Widen patient columns</comment>
     <sql>
-        drop view clinlims.sampletracking;
+        drop view if exists clinlims.sampletracking;
         alter table clinlims.patient_identity alter column identity_data type varchar(255);
         alter table clinlims.person alter column last_name type varchar(255);
         alter table clinlims.person alter column first_name type varchar(255);

@@ -3,7 +3,7 @@
   <!--Viral Load Study settings-->
  
  
-  <changeSet author="CI OpenELIS developers group" id="1" runOnChange="true">
+  <changeSet author="CI OpenELIS developers group" id="1" >
     <preConditions onFail="MARK_RAN">
               <sqlCheck expectedResult="0">select count(*) from clinlims.observation_history_type where type_name = 'vlPregnancy';</sqlCheck>
           </preConditions>
@@ -13,7 +13,7 @@
   </changeSet>
   
   
-  <changeSet author="CI OpenELIS developers group" id="2" runOnChange="true">
+  <changeSet author="CI OpenELIS developers group" id="2" >
     <comment>Update column type</comment>
     <sql>ALTER TABLE clinlims.panel ALTER COLUMN name TYPE VARCHAR;</sql>
     <sql>ALTER TABLE clinlims.panel ALTER COLUMN description TYPE VARCHAR;</sql>
@@ -26,7 +26,7 @@
   </changeSet>
   
 
-  <changeSet author="CI OpenELIS developers group" id="3" runOnChange="true">
+  <changeSet author="CI OpenELIS developers group" id="3" >
     <preConditions onFail="MARK_RAN">
               <sqlCheck expectedResult="0">select count(*) from clinlims.localization where french = 'Hématocrite';</sqlCheck>
           </preConditions>

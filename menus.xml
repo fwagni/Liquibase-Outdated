@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
     <!--The common elements of the menu (except for RetroCI) are the first set, followed by individual settings for other sets -->
-    <changeSet id="7" author="paulsc" context="haiti,haitiLNSP,ciLNSP,CI_IPCI,ci_regional,Kenya,ci_general_9.6" runOnChange="true" runAlways="true">
+    <changeSet id="7" author="paulsc" context="haiti,haitiLNSP,ciLNSP,CI_IPCI,ci_regional,Kenya,ci_general_9.6"  >
         <comment>Menu Items common to all configurations except for RetroCI</comment>
         <delete schemaName="clinlims" tableName="menu" />
         <sql>ALTER SEQUENCE clinlims.menu_seq RESTART 1;</sql>
@@ -272,7 +272,7 @@
             <column name="tool_tip_key" value="tooltip.bannner.menu.workplan.bench" />
         </insert>
     </changeSet>
-	<changeSet author="marks" id="1" context="haiti" runOnChange="true" runAlways="true">
+	<changeSet author="marks" id="1" context="haiti"  >
 		<comment>Adds the menu items for Haiti</comment>
 		<insert schemaName="clinlims" tableName="menu">
 			<column name="id" valueNumeric=" nextval( 'menu_seq' ) " />
@@ -398,7 +398,7 @@
 		</insert>
 
 	</changeSet>
-	<changeSet author="marks" id="2" context="haitiLNSP" runOnChange="true" runAlways="true">
+	<changeSet author="marks" id="2" context="haitiLNSP"  >
 		<comment>Adds the menu items for Haiti LNSP</comment>
 		<insert schemaName="clinlims" tableName="menu">
 			<column name="id" valueNumeric=" nextval( 'menu_seq' ) " />
@@ -598,7 +598,7 @@
 		</insert>
 	</changeSet>
 
-	<changeSet author="marks" id="3" context="ciLNSP" runOnChange="true" runAlways="true">
+	<changeSet author="marks" id="3" context="ciLNSP"  >
 		<comment>Adds the menu items for Cote d'Ivoire LNSP</comment>
 		<insert schemaName="clinlims" tableName="menu">
 			<column name="id" valueNumeric=" nextval( 'menu_seq' ) " />
@@ -696,7 +696,7 @@
 			<column name="new_window" value="true" />
 		</insert>
 	</changeSet>
-	<changeSet author="paulsc" id="1" context="CI_IPCI"	runOnChange="true" runAlways="true">
+	<changeSet author="paulsc" id="1" context="CI_IPCI"	 >
 		<comment>Adds the menu items for Cote d'Ivoire IPCI</comment>
 		<insert schemaName="clinlims" tableName="menu">
 			<column name="id" valueNumeric=" nextval( 'menu_seq' ) " />
@@ -794,7 +794,7 @@
 			<column name="new_window" value="true" />
 		</insert>
 	</changeSet>
-		<changeSet author="pauls" id="2" context="ci_regional"	runOnChange="true" runAlways="true">
+		<changeSet author="pauls" id="2" context="ci_regional"	 >
 		<comment>Adds the menu items for Cote d'Ivoire Regional Labs</comment>
 		<insert schemaName="clinlims" tableName="menu">
 			<column name="id" valueNumeric=" nextval( 'menu_seq' ) " />
@@ -892,7 +892,7 @@
 			<column name="new_window" value="true" />
 		</insert>
 	</changeSet>
-	<changeSet author="marks" id="4" context="CDIRetroCI" runOnChange="true">
+	<changeSet author="marks" id="4" context="CDIRetroCI" >
 		<comment>Adds the menu items for RetroCI</comment>
 		<sql>ALTER SEQUENCE clinlims.menu_seq RESTART 1;</sql>
 		<delete schemaName="clinlims" tableName="menu" />
@@ -1587,7 +1587,7 @@
 			<column name="tool_tip_key" value="configuration.test.management" />
 		</insert>
 	</changeSet>
-	<changeSet author="jfurlong" id="1" context="Kenya"	runOnChange="true" runAlways="true">
+	<changeSet author="jfurlong" id="1" context="Kenya"	 >
 		<comment>Adds the menu items for Kenya</comment>
 		<insert schemaName="clinlims" tableName="menu">
 			<column name="id" valueNumeric=" nextval( 'menu_seq' ) " />

@@ -68,7 +68,6 @@
         <column name="name_localization_id" type="numeric(10,0)" />
         <column name="reporting_name_localization_id" type="numeric(10,0)" />
     </addColumn>
-    <dropColumn tableName="test" columnName="display_key" />
     <addForeignKeyConstraint baseTableName="test" baseColumnNames="name_localization_id"
                              constraintName="name_fk" referencedTableName="localization"
                              referencedColumnNames="id" deleteCascade="true"/>

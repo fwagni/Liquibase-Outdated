@@ -84,7 +84,7 @@ VALUES(nextval('localization_seq'), 'sampleType name', 'Stool', 'Selles', now())
 UPDATE type_of_sample set name_localization_id = currval('localization_seq') where description = 'Selles';
 INSERT INTO localization(  id, description, english, french, lastupdated)
 VALUES(nextval('localization_seq'), 'sampleType name', 'Serum', 'Sérum', now());
-UPDATE type_of_sample set name_localization_id = currval('localization_seq') where description = 'Serum';
+UPDATE type_of_sample set name_localization_id = currval('localization_seq') where description = 'Serum' OR description = 'Sérum';
 INSERT INTO localization(  id, description, english, french, lastupdated)
 VALUES(nextval('localization_seq'), 'sampleType name', 'Serum/Urine Concentre du Matin', 'Sérum/Urine Concentre du Matin', now());
 UPDATE type_of_sample set name_localization_id = currval('localization_seq') where description = 'Serum/Urine Concentre du Matin';

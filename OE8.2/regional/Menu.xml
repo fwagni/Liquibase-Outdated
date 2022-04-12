@@ -2,7 +2,7 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
   <!--Menu Study settings-->
     
- <changeSet author="CI OpenELIS developers group" id="1" runAlways="true">
+ <changeSet author="CI OpenELIS developers group" id="1" >
     <preConditions onFail="MARK_RAN">
       <sqlCheck expectedResult="0">select count(*) from clinlims.menu where element_id = 'menu_reports_export_specific';
     		</sqlCheck>
@@ -23,7 +23,7 @@ where element_id ='menu_reports_export';
   </changeSet>
   
   
- <changeSet author="csteele" id="2"  context="ci_regional,ci_general" runAlways="true">
+ <changeSet author="csteele" id="2"  context="ci_regional,ci_general" >
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">
                 select count(*) from clinlims.menu where element_id = 'menu_sample_eorder';
@@ -39,7 +39,7 @@ where element_id ='menu_reports_export';
     </changeSet>
 	
 	
-<changeSet author="CI OpenELIS developers group" id="2" runAlways="true">
+<changeSet author="CI OpenELIS developers group" id="2" >
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">
                 select count(*) from clinlims.menu where element_id = 'menu_help_user_manual';

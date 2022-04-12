@@ -2,7 +2,7 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
   <!--Me-->
   
-    <changeSet author="csteele" id="1"  context="ci_regional,ci_general">
+    <changeSet author="csteele" id="1"  context="ci_regional,ci_general,haiti">
     <preConditions onFail="MARK_RAN">
       <not>
         <tableExists tableName="hl7_message_out" schemaName="clinlims" />
@@ -30,7 +30,7 @@
         </sql>
     </changeSet>
     
-    <changeSet author="csteele" id="2"  context="ci_regional,ci_general">
+    <changeSet author="csteele" id="2"  context="ci_regional,ci_general,haiti">
     <preConditions onFail="MARK_RAN">
 		<sqlCheck expectedResult="0">SELECT COUNT(*) FROM clinlims.reference_tables WHERE name = 'HL7_MESSAGE_OUT'</sqlCheck>
 	</preConditions>

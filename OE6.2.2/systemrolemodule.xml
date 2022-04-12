@@ -2,7 +2,7 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
   <!--system role and module updating-->
   <!-- Data specific to CDIRetroCI -->
-  <changeSet author="CI OpenELIS developers group" id="1" context="ci_regional,ci_general">
+  <changeSet author="CI OpenELIS developers group" id="1" context="ci_regional,ci_general,haiti">
     <preConditions onFail="MARK_RAN">
       <sqlCheck expectedResult="0">select count(*) from clinlims.system_role where name= 'Results Admin';
     		</sqlCheck>
@@ -22,7 +22,7 @@ INSERT INTO clinlims.system_role(id, name, description, is_grouping_role, groupi
 </sql>
   </changeSet>
   
-  <changeSet author="CI OpenELIS developers group" id="2" context="ci_regional,ci_general">
+  <changeSet author="CI OpenELIS developers group" id="2" context="ci_regional,ci_general,haiti">
     <preConditions onFail="MARK_RAN">
 	
       <sqlCheck expectedResult="0">select count(*) from clinlims.system_module where id= 1100;
@@ -47,7 +47,7 @@ INSERT INTO clinlims.system_module(
   </changeSet>
   
   
-  <changeSet author="CI OpenELIS developers group" id="3" context="ci_regional,ci_general">
+  <changeSet author="CI OpenELIS developers group" id="3" context="ci_regional,ci_general,haiti">
     <preConditions onFail="MARK_RAN">
       <sqlCheck expectedResult="0">select count(*) from clinlims.system_role_module where system_role_id= '67';
     		</sqlCheck>
@@ -65,7 +65,7 @@ INSERT INTO clinlims.system_role_module(id, has_select, has_add, has_update, has
 </sql>
   </changeSet>
   
- <changeSet author="CI OpenELIS developers group" id="4" context="ci_regional,ci_general">
+ <changeSet author="CI OpenELIS developers group" id="4" context="ci_regional,ci_general,haiti">
     <preConditions onFail="MARK_RAN">
       <sqlCheck expectedResult="0">select count(*) from clinlims.system_module where name= 'Workplan:EID';
     		</sqlCheck>

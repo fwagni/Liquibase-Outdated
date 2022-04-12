@@ -15,7 +15,7 @@ is_active,reference_to,program_code,lastupdated,scriptlet_id,local_abbrev,displa
 VALUES (nextval('clinlims.project_seq'),'Viral Load Results',null,'Viral Load Results',null,null,'Y',null,'LART',now(),null,null,'project.VLStudy.name');
 </sql>
   </changeSet>
-  <changeSet author="CI OpenELIS developers group" id="2" context="CDIRetroCI" runOnChange="true">
+  <changeSet author="CI OpenELIS developers group" id="2" context="CDIRetroCI" >
     <preConditions onFail="MARK_RAN">
       
         <sqlCheck expectedResult="0">select count(*) from clinlims.dictionary_category where local_abbrev = 'vlReason';
@@ -27,7 +27,7 @@ VALUES (nextval('clinlims.project_seq'),'Viral Load Results',null,'Viral Load Re
 VALUES (400,'Reason for Viral Load Request', now(),'vlReason','Reason for Viral Load Request');
 </sql>
   </changeSet>
-  <changeSet author="CI OpenELIS developers group" id="3" context="CDIRetroCI" runOnChange="true">
+  <changeSet author="CI OpenELIS developers group" id="3" context="CDIRetroCI" >
     <preConditions onFail="MARK_RAN">
               <sqlCheck expectedResult="0">select count(*) from clinlims.dictionary where dict_entry = 'Valid';</sqlCheck>
       
@@ -46,7 +46,7 @@ INSERT INTO clinlims.dictionary (id,is_active,dict_entry,lastupdated,local_abbre
 INSERT INTO clinlims.dictionary (id,is_active,dict_entry,lastupdated,local_abbrev,dictionary_category_id,display_key,sort_order) VALUES (1153,'Y','VL Reason Other', now(),'null',400,'sample.entry.project.vl.other',5);
 </sql>
   </changeSet>
-  <changeSet author="CI OpenELIS developers group4" id="4" context="CDIRetroCI" runOnChange="true">
+  <changeSet author="CI OpenELIS developers group4" id="4" context="CDIRetroCI" >
     <preConditions onFail="MARK_RAN">
               <sqlCheck expectedResult="0">select count(*) from clinlims.test_result where value = '1148';   		</sqlCheck>
           </preConditions>
@@ -54,7 +54,7 @@ INSERT INTO clinlims.dictionary (id,is_active,dict_entry,lastupdated,local_abbre
     <sql>INSERT INTO clinlims.test_result (id,test_id,result_group,flags,tst_rslt_type,value,significant_digits,quant_limit,cont_level,lastupdated,scriptlet_id,sort_order,is_quantifiable,is_active) VALUES (nextval('clinlims.test_result_seq'),175,18,'','D','1148',0,'','', now(),null,null,'TRUE','TRUE');
 </sql>
   </changeSet>
-  <changeSet author="CI OpenELIS developers group" id="5" context="CDIRetroCI" runOnChange="true">
+  <changeSet author="CI OpenELIS developers group" id="5" context="CDIRetroCI" >
     <preConditions onFail="MARK_RAN">
               <sqlCheck expectedResult="0">select count(*) from clinlims.menu where element_id = 'menu_reports_arv_all'</sqlCheck>
           </preConditions>
@@ -70,7 +70,7 @@ INSERT INTO clinlims.menu (id,parent_id,presentation_order,element_id,action_url
 INSERT INTO clinlims.menu (id,parent_id,presentation_order,element_id,action_url,click_action,display_key,tool_tip_key,new_window,is_active) VALUES (nextval('clinlims.menu_seq'),(select id from clinlims.menu where element_id='menu_reports_vl'),1,'menu_reports_vl_version1','/Report.do?type=patient&amp;report=patientVL1','','openreports.patient.VL.version1','tooltip.openreports.patient.VL.version1','FALSE','TRUE');
 </sql>
   </changeSet>
-  <changeSet author="CI OpenELIS developers group" id="6" context="CDIRetroCI" runOnChange="true">
+  <changeSet author="CI OpenELIS developers group" id="6" context="CDIRetroCI" >
     <preConditions onFail="MARK_RAN">
               <sqlCheck expectedResult="0">select count(*) from clinlims.observation_history_type where type_name = 'arvTreatmentInitDate';</sqlCheck>
           </preConditions>
