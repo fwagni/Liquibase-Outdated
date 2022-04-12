@@ -49,7 +49,6 @@
     </changeSet>
     <changeSet id="8" author="paulsc" >
         <comment>Finishes up the change for sample type localization</comment>
-        <dropColumn tableName="type_of_sample" columnName="display_key" />
         <addNotNullConstraint tableName="type_of_sample" columnName="name_localization_id" />
         <addForeignKeyConstraint baseTableName="type_of_sample" baseColumnNames="name_localization_id"
                                  constraintName="fk_sample_type_localization" referencedTableName="localization"

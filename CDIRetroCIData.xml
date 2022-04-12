@@ -26,7 +26,7 @@
 		</sql>
     </changeSet>
     
-    <changeSet author="pahill" id="2" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="pahill" id="2" context="CDIRetroCI" >
     	<preConditions onFail="MARK_RAN">
     		<sqlCheck expectedResult="0">
     			select count(*) from clinlims.dictionary_category where local_abbrev = 'ARVMarital';
@@ -49,7 +49,7 @@
     	</sql>
     </changeSet>
 
-    <changeSet author="pahill" id="3" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="pahill" id="3" context="CDIRetroCI" >
     	<preConditions onFail="MARK_RAN">
     		<sqlCheck expectedResult="0">
     			select count(*) from clinlims.dictionary_category where local_abbrev = 'RTNNation';
@@ -86,7 +86,7 @@
     	</sql>
     </changeSet>
     
-    <changeSet author="pahill" id="4" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="pahill" id="4" context="CDIRetroCI" >
     	<preConditions onFail="MARK_RAN">
     		<sqlCheck expectedResult="0">
     			select count(*) from clinlims.dictionary_category where local_abbrev = 'YesNoUnkn';
@@ -105,7 +105,7 @@
     	</sql>
     </changeSet>
 
-    <changeSet author="pahill" id="5" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="pahill" id="5" context="CDIRetroCI" >
     	<preConditions onFail="MARK_RAN">
     		<sqlCheck expectedResult="0">
     			select count(*) from clinlims.dictionary_category where local_abbrev = 'YesNoNA';
@@ -124,7 +124,7 @@
     	</sql>
     </changeSet>
 
-    <changeSet author="pahill" id="6" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="pahill" id="6" context="CDIRetroCI" >
     	<preConditions onFail="MARK_RAN">
     		<sqlCheck expectedResult="0">
     			select count(*) from clinlims.dictionary_category where local_abbrev = 'YesNo';
@@ -141,7 +141,7 @@
     	</sql>
     </changeSet>
     
-    <changeSet author="pahill" id="7" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="pahill" id="7" context="CDIRetroCI" >
     	<preConditions onFail="MARK_RAN">
     		<sqlCheck expectedResult="0">
     			select count(*) from clinlims.dictionary_category where local_abbrev = 'ARVDisease';
@@ -175,7 +175,7 @@
 				VALUES  ('Y', 'DiarrheaC', 'disease.diarrhea', 'Chronic Diarrhea : Demographic Answer to ARV disease question', nextval('dictionary_seq'), currval('dictionary_category_seq')); 
     	</sql>
     </changeSet>
-    <changeSet author="pahill" id="8" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="pahill" id="8" context="CDIRetroCI" >
     	<preConditions onFail="MARK_RAN">
     		<sqlCheck expectedResult="0">
     			select count(*) from clinlims.dictionary_category where local_abbrev = 'ARVProphyl';
@@ -194,7 +194,7 @@
     	</sql>
     </changeSet>
     
-    <changeSet author="pahill" id="9" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="pahill" id="9" context="CDIRetroCI" >
     	<preConditions onFail="MARK_RAN">
     		<sqlCheck expectedResult="0">
     			select count(*) from clinlims.dictionary_category where local_abbrev = 'AIDSStg';
@@ -220,7 +220,7 @@
     	</sql>
     </changeSet>
     
-    <changeSet author="pahill" id="10" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="pahill" id="10" context="CDIRetroCI" >
                <comment>Removed and replaced with following change set, demographic history was renamed to observation history</comment>
     </changeSet>
     
@@ -246,7 +246,7 @@
     	</sql>
     </changeSet>
     
-    <changeSet author="pahill" id="11" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="pahill" id="11" context="CDIRetroCI" >
     	<preConditions onFail="MARK_RAN">
     		<sqlCheck expectedResult="0">
     			select count(*) from clinlims.dictionary_category where local_abbrev = 'ARVNation';
@@ -283,7 +283,7 @@
     	</sql>
     </changeSet>
     
-    <changeSet author="pahill" id="12" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="pahill" id="12" context="CDIRetroCI" >
     	<preConditions onFail="MARK_RAN">
     		<sqlCheck expectedResult="0">
     			select count(*) from observation_history_type where type_name = 'legalResidence';
@@ -296,7 +296,7 @@
     	</sql>
     </changeSet>
     
-    <changeSet author="pahill" id="13" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="pahill" id="13" context="CDIRetroCI" >
     	<preConditions onFail="MARK_RAN">
     		<sqlCheck expectedResult="0">
     			select count(*) from dictionary_category where local_abbrev = 'HIVStatus';
@@ -315,7 +315,7 @@
     	</sql>
     </changeSet>
     
-    <changeSet author="pauls" id="1" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="pauls" id="1" context="CDIRetroCI" >
                <comment>Setting Status for RetroCI</comment>
                <delete schemaName="clinlims" tableName="status_of_sample"/>
                <insert schemaName="clinlims" tableName="status_of_sample">
@@ -445,7 +445,7 @@
                        <column name="display_key" value="status.record.underInvestigation"/>
                </insert>
     </changeSet>
-    <changeSet author="pahill" id="14" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="pahill" id="14" context="CDIRetroCI" >
     	<preConditions onFail="MARK_RAN">
   			<sqlCheck expectedResult="0">
   				select count(*) from dictionary_category where local_abbrev = 'arvProph2'
@@ -517,7 +517,7 @@
     
    	<include file="RetroCITests.xml"/>
 
-<!--     <changeSet author="paulsc" id="3" context="CDIRetroCI" runOnChange="true"> -->
+<!--     <changeSet author="paulsc" id="3" context="CDIRetroCI" > -->
 <!--     <preConditions onFail="MARK_RAN"> -->
 <!--     <sqlCheck expectedResult="0"> -->
 <!--               SELECT count( * )  FROM clinlims.system_user where login_name = 'analyzer'; -->
@@ -586,7 +586,7 @@
        </loadData>
     </changeSet>
     
-    <changeSet author="pahill" id="15" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="pahill" id="15" context="CDIRetroCI" >
     	<comment>Generalizing some of the lists 1st used in CDI RetroCI studies for others to use.</comment>
 	    <update tableName="dictionary_category" schemaName="clinlims">
 	    	<column name="local_abbrev" value="Education"/>
@@ -662,7 +662,7 @@
     </changeSet>    
     
     
-     <changeSet author="nixonl" id="3" context="CDIRetroCI" runOnChange="true">
+     <changeSet author="nixonl" id="3" context="CDIRetroCI" >
                <comment>Drop and Insert Projects</comment>
                <delete schemaName="clinlims" tableName="project_organization"/>
                <delete schemaName="clinlims" tableName="project"/>
@@ -696,7 +696,7 @@
                </insert>
     </changeSet>
         
-    <changeSet author="nixonl" id="4" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="nixonl" id="4" context="CDIRetroCI" >
                <comment>Add Record Status (Sample and Patient) as a type to ObservationHistoryType table</comment>  
  
                <insert schemaName="clinlims" tableName="observation_history_type">
@@ -734,7 +734,7 @@
 	<include file="RTN Study Organizations.xml"/>
 	<include file="RTN Hospital Organizations.xml"/>
 	
-    <changeSet author="pahill" id="17" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="pahill" id="17" context="CDIRetroCI" >
     	<preConditions onFail="MARK_RAN">
     		<sqlCheck expectedResult="0">
     			select count(*) from clinlims.dictionary_category where local_abbrev = 'NatSimple';
@@ -834,7 +834,7 @@
                 <column name="mls_sentinel_lab_flag" value="N"/>
         	</insert>
   	</changeSet>
-  	<changeSet author="pahill" id="18" context="CDIRetroCI" runOnChange="true">
+  	<changeSet author="pahill" id="18" context="CDIRetroCI" >
     	<preConditions onFail="MARK_RAN">
   			<sqlCheck expectedResult="0">
   				select count(*) from dictionary_category where local_abbrev = 'arvRegime'
@@ -920,7 +920,7 @@
      </changeSet>
 	  
 	  <!-- Enhancement to paulsc:8  -->
-      <changeSet author="nixonl" id="9" context="CDIRetroCI" runOnChange="true">
+      <changeSet author="nixonl" id="9" context="CDIRetroCI" >
       <preConditions onFail="MARK_RAN">
   			<sqlCheck expectedResult="0">
   				select count(*) from clinlims.system_role where display_key = 'role.patient.edit'
@@ -1033,7 +1033,7 @@
       </changeSet>
       
 
-      <changeSet author="nixonl" id="12" context="CDIRetroCI" runOnChange="true">
+      <changeSet author="nixonl" id="12" context="CDIRetroCI" >
          <comment>Add HIV Status as a type to ObservationHistoryType table</comment>  
  		 <insert schemaName="clinlims" tableName="observation_history_type">
  	        <column name="id" valueNumeric=" nextval( 'observation_history_type_seq' ) "/>
@@ -1117,7 +1117,7 @@
       	</loadData>
       </changeSet>  	 
   
-      <changeSet author="nixonl" id="14" context="CDIRetroCI" runOnChange="true">
+      <changeSet author="nixonl" id="14" context="CDIRetroCI" >
 	      	<preConditions onFail="MARK_RAN">
 		          <sqlCheck expectedResult="0">
 		              select count(*) from clinlims.observation_history_type where type_name='whichPCR';
@@ -1268,7 +1268,7 @@
          
          
          
-    <changeSet author="nixonl" id="15" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="nixonl" id="15" context="CDIRetroCI" >
       	<preConditions onFail="MARK_RAN">
 	          <sqlCheck expectedResult="0">
 	              select count(*) from clinlims.observation_history_type where type_name='eidInfantPTME';
@@ -1605,7 +1605,7 @@
         
    </changeSet>
     
-    <changeSet author="nixonl" id="16" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="nixonl" id="16" context="CDIRetroCI" >
       	<preConditions onFail="MARK_RAN">
 	          <sqlCheck expectedResult="0">
 	              select count(*) from clinlims.observation_history_type where type_name='';
@@ -1759,7 +1759,7 @@
              <column name="system_module_id" header="system_module_id" type="NUMERIC"/>
        </loadData>
       </changeSet>
-      <changeSet author="pauls" id="15" context="CDIRetroCI" runOnChange="true">
+      <changeSet author="pauls" id="15" context="CDIRetroCI" >
                <comment>Adding analysis status of non-conforming</comment>
                <insert schemaName="clinlims" tableName="status_of_sample">
                        <column name="id" valueNumeric=" nextval( 'status_of_sample_seq' ) "/>
@@ -1772,7 +1772,7 @@
                </insert>
        </changeSet>
        <!-- extends nixonl 3 -->
-       <changeSet author="paulsc" id="16" context="CDIRetroCI" runOnChange="true">
+       <changeSet author="paulsc" id="16" context="CDIRetroCI" >
                <comment>Insert Project ARV followup project and copies organizations from ARV study</comment>
                <insert schemaName="clinlims" tableName="project">
                        <column name="id" valueNumeric=" nextval( 'project_seq' ) "/>
@@ -1906,7 +1906,7 @@
              <column name="system_module_id" header="system_module_id" type="NUMERIC"/>
        </loadData>
     </changeSet>
-    <changeSet author="pahill" id="29" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="pahill" id="29" context="CDIRetroCI" >
     	<preConditions onFail="MARK_RAN">
     		<sqlCheck expectedResult="0">
     			select count(*) from clinlims.dictionary_category where local_abbrev = 'divorced';
@@ -1924,7 +1924,7 @@
     	</insert>
     </changeSet>
         
-    <changeSet author="pahill" id="30" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="pahill" id="30" context="CDIRetroCI" >
     	<preConditions onFail="MARK_RAN">
     		<sqlCheck expectedResult="0">
     			select count(*) from clinlims.dictionary where dict_entry='Not applicable (AIDS Prophylaxis)' AND
@@ -1937,7 +1937,7 @@
 	    	<where>dict_entry='Not applicable (AIDS Prophylaxis)'</where>
 	    </update>
 	</changeSet>
-	<changeSet author="pahill" id="31" context="CDIRetroCI" runOnChange="true">
+	<changeSet author="pahill" id="31" context="CDIRetroCI" >
     	<preConditions onFail="MARK_RAN">
     		<sqlCheck expectedResult="0">
     			SELECT count(*) FROM clinlims.organization_type WHERE short_name LIKE 'EID%'
@@ -2011,7 +2011,7 @@
 			 <column name="display_key"                   value="answer.unknown" />
 		</insert>
 	</changeSet>
-    <changeSet author="pahill" id="34" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="pahill" id="34" context="CDIRetroCI" >
 	    <comment>Add a couple of missing answers to demographic questions.</comment>  
 		<insert schemaName="clinlims" tableName="observation_history_type">
 			<column name="id" valueNumeric=" nextval( 'observation_history_type_seq' ) "/>
@@ -2026,7 +2026,7 @@
 			<column name="lastupdated" valueNumeric=" now() "/>
 		</insert>
 	</changeSet>
-	<changeSet author="pahill" id="35" context="CDIRetroCI" runOnChange="true">
+	<changeSet author="pahill" id="35" context="CDIRetroCI" >
     	<comment>Bug Fix: Make sure any old ARV-F samples entered on a ARV-F form point to the ARV-F project.</comment>
 	    <update tableName="sample_projects" schemaName="clinlims">
 	    	<column name="proj_id" valueNumeric=" ( select id from project where name = 'Antiretroviral Followup Study' ) "/>
@@ -2086,7 +2086,7 @@
 	    </insert>
 	</changeSet>
 	<!-- changeSet author="pahill" id="37" "getting rid of extended accesion number table" moved to changeLogs.xml do not re-used ID, because some DBs have changelog entries for the old changeSet. -->
-    <changeSet author="pahill" id="38" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="pahill" id="38" context="CDIRetroCI" >
      	<preConditions onFail="MARK_RAN">
 	        <sqlCheck expectedResult="0">
 	            select count(*) from clinlims.observation_history_type where type_name='underInvestigation';
@@ -2100,7 +2100,7 @@
                <column name="lastupdated" valueNumeric=" now() "/>
         </insert>
     </changeSet>
-    <changeSet author="pahill" id="39" context="CDIRetroCI" runOnChange="true">
+    <changeSet author="pahill" id="39" context="CDIRetroCI" >
     	<preConditions onFail="MARK_RAN">
     		<sqlCheck expectedResult="t">
     			select ( (select count(0) from clinlims.test_section where display_key IS NULL ) > 0)
@@ -2111,7 +2111,7 @@
     		update clinlims.test_section set display_key = 'testSection.' || name 
     	</sql>
 	</changeSet>
-	<changeSet author="pahill" id="40" context="CDIRetroCI" runOnChange="true">
+	<changeSet author="pahill" id="40" context="CDIRetroCI" >
 		<comment>Makes sure the UNKNOWN patient is really empty.</comment>
 		<!-- could not figure out how to use update element when I needed to update a record in one table, patient, based on values in another table -->
 		

@@ -5,7 +5,7 @@
     <!--Add change tags here-->
 
   <include file="util/SystemUtil.xml"/>
-  <changeSet author="paulsc" id="1" runOnChange="true">
+  <changeSet author="paulsc" id="1" >
     <preConditions onFail="MARK_RAN">
     <not>
     <columnExists columnName="sibling_reflex" schemaName="clinlims" tableName="test_reflex"/>
@@ -24,7 +24,7 @@
 	</sql>
   </changeSet>
 
-  <changeSet author="paulsc" id="2" runOnChange="true">
+  <changeSet author="paulsc" id="2" >
     <preConditions onFail="MARK_RAN">
       <not>
         <tableExists schemaName="clinlims" tableName="analyzer"/>
@@ -56,7 +56,7 @@
     </sql>
   </changeSet>
 
-  <changeSet author="paulsc" id="4" runOnChange="true">
+  <changeSet author="paulsc" id="4" >
     <preConditions onFail="MARK_RAN">
       <not>
         <tableExists tableName="analyzer_results" schemaName="clinlims"/>
@@ -121,7 +121,7 @@
     </sql>
   </changeSet>
 
-  <changeSet id="5" author="paulsc" runOnChange="true">
+  <changeSet id="5" author="paulsc" >
     <preConditions onFail="MARK_RAN">
        <sqlCheck expectedResult="0">select count(*) from clinlims.patient_identity_type where identity_type='SUBJECT'</sqlCheck>
     </preConditions>
@@ -130,7 +130,7 @@
     </sql>
   </changeSet>
 
-  <changeSet id="6" author="paulsc" runOnChange="true">
+  <changeSet id="6" author="paulsc" >
     <preConditions onFail="MARK_RAN">
        <sqlCheck expectedResult="0">select count(*) from clinlims.patient_identity_type where identity_type='AMBIGUOUS_DOB'</sqlCheck>
     </preConditions>
@@ -139,7 +139,7 @@
     </sql>
   </changeSet>
 
-   <changeSet id="7" author="paulsc" runOnChange="true">
+   <changeSet id="7" author="paulsc" >
     <preConditions onFail="MARK_RAN">
       <not>
           <tableExists tableName="organization_type" schemaName="clinlims"/>
@@ -180,7 +180,7 @@
     </sql>
   </changeSet>
 
-   <changeSet id="8" author="paulsc" runOnChange="true">
+   <changeSet id="8" author="paulsc" >
     <preConditions onFail="MARK_RAN">
       <not>
           <tableExists tableName="requester_type" schemaName="clinlims"/>
@@ -222,14 +222,14 @@
     </sql>
   </changeSet>
 
-  <changeSet id="9" author="paulsc" runOnChange="true">
+  <changeSet id="9" author="paulsc" >
   <comment>Sets lastupdated in test_analyte.  Otherwise test_reflex update fails</comment>
   <sql>
        update clinlims.test_analyte set lastupdated = now() where lastupdated IS NULL;
   </sql>
   </changeSet>
 
-  <changeSet id="10" author="paulsc" runOnChange="true">
+  <changeSet id="10" author="paulsc" >
   <comment>Adds the constraint to the test_reflex.reflex_sibling column to set it to null if the referencing row is deleted</comment>
   <dropForeignKeyConstraint baseTableName="test_reflex" baseTableSchemaName="clinlims" constraintName="fk_sibling_reflex"/>
   <addForeignKeyConstraint baseTableName="test_reflex"
@@ -243,7 +243,7 @@
 
   </changeSet>
 
-  <changeSet id="11" author="paulsc" context="haiti" runOnChange="true">
+  <changeSet id="11" author="paulsc" context="haiti" >
    <preConditions onFail="MARK_RAN">
                   <sqlCheck expectedResult="1">select count(*) from clinlims.dictionary where dict_entry = 'patuese';</sqlCheck>
    </preConditions>
@@ -251,7 +251,7 @@
    <sql>update clinlims.dictionary set dict_entry='Pateuse', local_abbrev='PATEUSE' where dict_entry = 'patuese';</sql>
   </changeSet>
 
-  <changeSet id="12" author="paulsc" context="haiti" runOnChange="true">
+  <changeSet id="12" author="paulsc" context="haiti" >
    <preConditions onFail="MARK_RAN">
                   <sqlCheck expectedResult="1">select count(*) from clinlims.panel_item pi
                                                join clinlims.panel p on p.id = pi.panel_id
@@ -264,7 +264,7 @@
    where p.name = 'Hemogramme' and pi.test_local_abbrev = 'Reticulocytes'); </sql>
   </changeSet>
 
-  <changeSet id="13" author="paulsc" runOnChange="true">
+  <changeSet id="13" author="paulsc" >
   <preConditions onFail="MARK_RAN">
          <and>
          <tableExists schemaName="clinlims" tableName="analyzer_results"/>
@@ -277,7 +277,7 @@
   <dropColumn columnName="positive" schemaName="clinlims" tableName="analyzer_results"/>
   </changeSet>
 
-  <changeSet id="14" author="paulsc" runOnChange="true">
+  <changeSet id="14" author="paulsc" >
   <preConditions onFail="MARK_RAN">
          <tableExists schemaName="clinlims" tableName="analyzer_results"/>
   </preConditions>
@@ -291,7 +291,7 @@
   </sql>
   </changeSet>
 
-  <changeSet id="15" author="paulsc" runOnChange="true">
+  <changeSet id="15" author="paulsc" >
   <preConditions onFail="MARK_RAN">
        <and>
          <tableExists schemaName="clinlims" tableName="analyzer_results"/>
@@ -311,7 +311,7 @@
   <dropColumn columnName="analysis_id" schemaName="clinlims" tableName="analyzer_results"/> -->
   </changeSet>
   
- <changeSet id="16" author="paulsc" runOnChange="true">
+ <changeSet id="16" author="paulsc" >
   <preConditions onFail="MARK_RAN">
          <viewExists  schemaName="clinlims" viewName="accession_test"/>
   </preConditions>
@@ -319,7 +319,7 @@
   <dropView schemaName="clinlims" viewName="accession_test"/>
   </changeSet>
 
-  <changeSet id="17" author="paulsc" runOnChange="true">
+  <changeSet id="17" author="paulsc" >
   <preConditions onFail="MARK_RAN">
          <viewExists  schemaName="clinlims" viewName="Accession_test"/>
   </preConditions>
@@ -327,7 +327,7 @@
   <dropView schemaName="clinlims" viewName="Accession_Test"/>
   </changeSet>
 
-  <changeSet id="18" author="paulsc" runOnChange="true">
+  <changeSet id="18" author="paulsc" >
   <comment>Adds a column to the analysis table to indicate if an analysis is the root of a reflex test</comment>
   <!-- gnr 06222016
   <addColumn schemaName="clinlims" tableName="analysis">
@@ -338,7 +338,7 @@
   </sql>
   </changeSet>
 
-  <changeSet id="19" author="paulsc" runOnChange="true">
+  <changeSet id="19" author="paulsc" >
   <comment>Adds commune and mothers initial as patient types</comment>
   <sql>
       INSERT INTO clinlims.patient_identity_type( id, identity_type, description, lastupdated)VALUES (nextval('clinlims.patient_identity_type_seq'), 'MOTHERS_INITIAL',  'Initial of mothers first name', current_timestamp );
@@ -346,7 +346,7 @@
   </sql>
   </changeSet>
 
-  <changeSet id="20" author="paulsc" runOnChange="true">
+  <changeSet id="20" author="paulsc" >
   <comment>Adds localization columns to test, test_section, SampleTypes, dictonary, panel and project</comment>
   <addColumn schemaName="clinlims" tableName="test_section">
      <column name="display_key" type="varchar(60)"  />
@@ -377,7 +377,7 @@
   </sql>
   </changeSet>
 
-  <changeSet id="21" author="paulsc" runOnChange="true">
+  <changeSet id="21" author="paulsc" >
   <comment>Add foriegn key constraint between extended_accession_number and sample</comment>
   <addForeignKeyConstraint baseTableSchemaName="clinlims"
                            baseTableName="extended_accession_number"
@@ -387,7 +387,7 @@
                            referencedTableName="sample" referencedColumnNames="id" />
   </changeSet>
 
-  <changeSet id="22" author="paulsc" runOnChange="true">
+  <changeSet id="22" author="paulsc" >
   <comment>Add Unique value contstraint to patient_identity_type</comment>
                <addUniqueConstraint schemaName="clinlims"
                                     tableName="patient_identity_type"
@@ -397,7 +397,7 @@
 
 
 
-  <changeSet id="23" author="paulsc" runOnChange="true">
+  <changeSet id="23" author="paulsc" >
   <preConditions onFail="MARK_RAN">
   <not>
        <tableExists schemaName="clinlims" tableName="site_information"/>
@@ -429,7 +429,7 @@
   </sql>
   </changeSet>
 
-  <changeSet id="24" author="nixonl" runOnChange="true">
+  <changeSet id="24" author="nixonl" >
     <preConditions onFail="MARK_RAN">
       <not>
         <tableExists tableName="project_organization" schemaName="clinlims"/>
@@ -450,7 +450,7 @@
     </sql>
   </changeSet>
 
-  <changeSet author="pahill" id="1" runOnChange="true">
+  <changeSet author="pahill" id="1" >
     <preConditions onFail="MARK_RAN">
     <not>
     <columnExists columnName="display_key" schemaName="clinlims" tableName="gender"/>
@@ -462,7 +462,7 @@
     </addColumn>
   </changeSet>
 
-  <changeSet author="pahill" id="2" runOnChange="true">
+  <changeSet author="pahill" id="2" >
     <preConditions onFail="MARK_RAN">
     <columnExists columnName="name_key" schemaName="clinlims" tableName="gender"/>
     </preConditions>
@@ -474,11 +474,11 @@
      </sql>
   </changeSet>
 
-  <changeSet author="pahill" id="3" runOnChange="true">
+  <changeSet author="pahill" id="3" >
       <comment>Removed and replaced with observation_history_type</comment>
   </changeSet>
 
-  <changeSet author="paulsc" id="27" runOnChange="true">
+  <changeSet author="paulsc" id="27" >
   	<preConditions onFail="MARK_RAN">
   		<not>
 	  		<tableExists tableName="observation_history_type" schemaName="clinlims"/>
@@ -511,7 +511,7 @@
   	</sql>
   </changeSet>
 
-  <changeSet author="paulsc" id="26" runOnChange="true">
+  <changeSet author="paulsc" id="26" >
     <preConditions onFail="MARK_RAN">
          <tableExists schemaName="clinlims" tableName="demographic_history"/>
          <not>
@@ -537,11 +537,11 @@
     </update>
   </changeSet>
 
-  <changeSet author="pahill" id="4" runOnChange="true">
+  <changeSet author="pahill" id="4" >
              <comment>Removed.  Replaced with observation_history table</comment>
   </changeSet>
 
-  <changeSet author="paulsc" id="28" runOnChange="true">
+  <changeSet author="paulsc" id="28" >
   	<preConditions onFail="MARK_RAN">
   		<not>
 	  		<tableExists tableName="observation_history" schemaName="clinlims"/>
@@ -589,7 +589,7 @@
   	</sql>
   </changeSet>
 
-  <changeSet author="paulsc" id="24" runOnChange="true">
+  <changeSet author="paulsc" id="24" >
   <preConditions onFail="MARK_RAN">
        <not>
             <columnExists columnName="display_key" schemaName="clinlims" tableName="status_of_sample"/>
@@ -601,7 +601,7 @@
   </addColumn>
   </changeSet>
 
-  <changeSet author="paulsc" id="25" runOnChange="true">
+  <changeSet author="paulsc" id="25" >
         <preConditions onFail="MARK_RAN">
         <not>
         <columnExists columnName="status_id" schemaName="clinlims" tableName="analysis"/>
@@ -624,7 +624,7 @@
         </sql>
   </changeSet>
 
-  <changeSet author="paulsc" id="30" runOnChange="true">
+  <changeSet author="paulsc" id="30" >
       <preConditions onFail="MARK_RAN">
       <not>
         <foreignKeyConstraintExists foreignKeyName="analysis_status_fk" schemaName="clinlims"/>
@@ -648,7 +648,7 @@
 
   </changeSet>
 
-  <changeSet author="paulsc" id="29" runOnChange="true">
+  <changeSet author="paulsc" id="29" >
       <preConditions onFail="MARK_RAN">
             <not>
             <tableExists schemaName="clinlims" tableName="analyzer_test_map"/>
@@ -678,7 +678,7 @@
         </sql>
   </changeSet>
 
-  <changeSet author="paulsc" id="31" runOnChange="true">
+  <changeSet author="paulsc" id="31" >
              <preConditions onFail="MARK_RAN">
              <not>
                   <columnExists schemaName="clinlims" tableName="analyzer_results" columnName="test_id"/>
@@ -695,7 +695,7 @@
              </sql>
   </changeSet>
 
-  <changeSet author="paulsc" id="32" runOnChange="true">
+  <changeSet author="paulsc" id="32" >
   <preConditions onFail="MARK_RAN">
      <not>
           <columnExists schemaName="clinlims" tableName="analyzer_results" columnName="duplicate_id"/>
@@ -951,7 +951,7 @@
                    <column name="lastupdated" valueDate=" now() "/>
            </insert>
 </changeSet>
-<changeSet author="paulsc" id="45" runOnChange="true">
+<changeSet author="paulsc" id="45" >
            <comment>Expand value column of result table to 200 char</comment>
            <modifyColumn schemaName="clinlims" tableName="result">
                          <column name="value" type="varchar(200)"/>
@@ -960,7 +960,6 @@
 
 <changeSet author="paulsc" id="46">
            <comment>Expand value column of first and last names from 20 to 40</comment>
-           <dropView schemaName="clinlims" viewName="sampletracking"/>
            <modifyColumn schemaName="clinlims" tableName="person">
                          <column name="first_name" type="varchar(40)"/>
                          <column name="last_name" type="varchar(40)"/>
@@ -1686,7 +1685,7 @@ ALTER TABLE sampletracking OWNER TO clinlims;
                    </where>
            </delete>
 </changeSet>
-<changeSet author="paulsc" id="84" runOnChange="true">
+<changeSet author="paulsc" id="84" >
            <comment>Widens the name of the 'name' column of the test table and then copies the description over</comment>
            <modifyColumn schemaName="clinlims" tableName="test">
                          <column name="name" type="varchar(60)"/>
@@ -2116,7 +2115,7 @@ ALTER TABLE sampletracking OWNER TO clinlims;
 <include file="menus.xml"/>
 <include file="version.xml"/>
 
-<changeSet author="paulsc" id="74" runOnChange="true"  >
+<changeSet author="paulsc" id="74"   >
            <preConditions onFail="MARK_RAN">
            <not>
            <sqlCheck expectedResult="0">
@@ -2170,7 +2169,7 @@ ALTER TABLE sampletracking OWNER TO clinlims;
 		DROP TABLE new_test_result;	
 	</sql>
 </changeSet>
-<changeSet author="pahill" id="9" runOnChange="true">
+<changeSet author="pahill" id="9" >
    <comment>Back fill to link up all result records to their test_results, now that all tests have test_results.</comment>
    <sql>
 		UPDATE result AS r 
@@ -2180,7 +2179,7 @@ ALTER TABLE sampletracking OWNER TO clinlims;
 		WHERE r.test_result_id IS NULL AND r.analysis_id = a.id AND a.test_id = t.id AND t.id = tr.test_id
 	</sql>
 </changeSet>
-<changeSet author="pahill" id="10" runOnChange="true">
+<changeSet author="pahill" id="10" >
    <comment>Special Case the back fill results which are 'generated CD4 Count' analytes, so that they point at the 'CD4 absolute count'
 			They currently (after the previous chage), point at the same test_results which went into the calculation, i.e. 'CD4 percentage count' 
    </comment>

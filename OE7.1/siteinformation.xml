@@ -3,7 +3,7 @@
   <!--bugfix for repeated value entry https://www.pivotaltracker.com/n/projects/18030/stories/155913308/comments/187011668-->
   <!--fix is to put lastupdated value when missing -->
   
- <changeSet author="CI OpenELIS developers group" id="1" runAlways="true">
+ <changeSet author="CI OpenELIS developers group" id="1" >
     <comment>update lastupdated when null</comment>
     <sql>
 		UPDATE clinlims.site_information 

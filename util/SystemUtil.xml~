@@ -4,7 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
    
-	<changeSet author="paulsc" id="3" context="deleteData" runAlways="true" runOnChange="true" >
+	<changeSet author="paulsc" id="3" context="deleteData"   >
              <comment>This will truncate patient, test and releated data.  It is non-recoverable</comment>
              <sql>
              SET search_path = clinlims, pg_catalog;
